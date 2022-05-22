@@ -29,7 +29,7 @@ const createIndexFile = async (source, dist, components) => {
     let template = await fs.readFile(source, 'utf8');
     const markup = await componentsMarkup(components);
 
-    template = template.replace(/{{(\w+)}}/g, ($1) => {
+    template = template.replace(/{{(.+)}}/g, ($1) => {
       return markup[$1.slice(2, -2)];
     });
 
